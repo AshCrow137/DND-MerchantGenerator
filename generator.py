@@ -19,7 +19,8 @@ class Generator():
         filePath = glob.glob('*/ItemLib/*.json')
         items = {}
         for path in filePath:
-            name = path.replace('.json','')
+            name = os.path.basename(path)
+            name = name.replace('.json','')
             self.ItemTypes.setdefault(name,True)
             file = open(path,'rt',encoding='utf-8')
             content = file.read()
